@@ -50,8 +50,16 @@ plot(nma)
 
 
 ```
+Interpretation of the Indirect Comparison
+Indirect RR (Drug B vs. Drug C) ≈ 1.0193: 
+This indicates that, based on the indirect comparison, Drug B is associated with a 1.93% higher risk of the outcome compared to Drug C. 
+However, it is crucial to analyze the confidence interval to determine significance.
+
+Since the confidence interval for the comparison between Drug B and Drug C includes the value of 1[0.8246; 1.2601], it indicates that there is no statistically significant difference between the two treatments. This finding should prompt you to explore clinical relevance, conduct further analyses and consider additional evidence,
+
 
 session information
 ```{r e}
 sessionInfo()
 ```
+
