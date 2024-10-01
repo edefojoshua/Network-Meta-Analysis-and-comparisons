@@ -1,0 +1,57 @@
+---
+title: "Network Meta Analysis, and comparisons"
+author: "Joshua Edefo"
+date: "2024-10-01"
+email: "edefojoshua2000@yahoo.com"
+output: github_document
+---
+
+```{r a, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Libraries
+
+```{r b}
+library(netmeta)
+library(usethis)
+
+```
+
+Data for direct comparisons
+```{r c}
+data <- data.frame(
+  study = c("Study1", "Study2", "Study3"),
+  treatment1 = c("DrugA", "DrugA", "DrugB"),
+  treatment2 = c("DrugB", "DrugC", "DrugC"),
+  TE = c(log(1.2), log(1.4), log(0.9)), # Log-transformed effect size (e.g., log Risk Ratio)
+  seTE = c(0.1, 0.12, 0.15) # Standard error of the log effect size
+)
+```
+
+Perform network meta-analysis
+```{r d}
+nma <- netmeta(
+  TE = data$TE,      # Treatment effect (log RR)
+  seTE = data$seTE,  # Standard error
+  treat1 = data$treatment1,  # First treatment
+  treat2 = data$treatment2,  # Second treatment
+  studlab = data$study,      # Study labels
+  sm = "RR"                  # Summary measure: Risk Ratio
+)
+
+# Show results
+print(nma)
+
+# Plot the network
+plot(nma)
+
+# Summary of the network meta-analysis
+
+
+```
+
+session information
+```{r e}
+sessionInfo()
+```
